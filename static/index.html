@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetinaScan | DR Classification</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-blob blob-1"></div>
+    <div class="background-blob blob-2"></div>
+
+    <main class="container">
+        <header>
+            <h1>RetinaScan</h1>
+            <p>Advanced Diabetic Retinopathy Classification</p>
+        </header>
+
+        <section class="upload-section glass-panel">
+            <div id="drop-zone" class="drop-zone">
+                <div class="upload-icon">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <h3>Drag & Drop</h3>
+                <p>your retina fundus image here</p>
+                <span class="divider">or</span>
+                <button id="browse-btn" class="btn primary-btn">Browse Files</button>
+                <input type="file" id="file-input" accept="image/*" hidden>
+            </div>
+            
+            <div id="preview-container" class="preview-container hidden">
+                <img id="image-preview" src="" alt="Retina Preview">
+                <div class="preview-actions">
+                    <button id="remove-btn" class="btn secondary-btn">Remove</button>
+                    <button id="analyze-btn" class="btn primary-btn">Analyze Image</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="result-section" class="result-section glass-panel hidden">
+            <div class="loader-container hidden" id="loader">
+                <div class="spinner"></div>
+                <p>Analyzing retina structure...</p>
+            </div>
+            
+            <div id="result-content" class="result-content hidden">
+                <h2>Analysis Complete</h2>
+                <div class="severity-badge" id="severity-badge">
+                    <span id="severity-label">Moderate</span>
+                </div>
+                <div class="confidence-meter">
+                    <div class="confidence-header">
+                        <span>Confidence</span>
+                        <span id="confidence-value">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="confidence-fill"></div>
+                    </div>
+                </div>
+                <p class="disclaimer">
+                    <i class="fa-solid fa-circle-info"></i>
+                    This tool is for demonstration purposes only and does not replace professional medical diagnosis.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="global-footer">
+        <p><i class="fa-solid fa-microscope"></i> This tool is for research and educational purposes only.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
