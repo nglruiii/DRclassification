@@ -2,3 +2,8 @@ venv/
 *.pyc
 __pycache__/
 .DS_Store
+/research/
+kfold_script.py
+pipeline_script.py
+training_data/
+*.csv
