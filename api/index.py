@@ -13,20 +13,16 @@ CLASSES = ["No DR", "Mild", "Moderate", "Severe", "PDR"]
 device = torch.device("cpu")
 
 model = None
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODEL_PATH = os.path.join(BASE_DIR, "best_model_kfold.pth")
+MODEL_PATH = "best_model_kfold.pth"
 
 @app.on_event("startup")
 async def load_model():
     global model
     model = timm.create_model("convnext_small", pretrained=False, num_classes=5)
     
-    local_model_path = "best_model_kfold.pth"
-    path_to_load = MODEL_PATH if os.path.exists(MODEL_PATH) else local_model_path
-    
-    if os.path.exists(path_to_load):
+    if os.path.exists(MODEL_PATH):
         try:
-            state_dict = torch.load(path_to_load, map_location=device)
+            state_dict = torch.load(MODEL_PATH, map_location=device)
             model.load_state_dict(state_dict)
         except Exception as e:
             print(f"Error loading model weights: {e}")
