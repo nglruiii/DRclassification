@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('file', currentFile);
 
         try {
-            const response = await fetch('/predict', {
+            const response = await fetch('/api/predict', {
                 method: 'POST',
                 body: formData
             });
