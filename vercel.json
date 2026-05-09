@@ -1,25 +1,8 @@
-      {
-        "rewrites": [
-          {
-            "source": "/predict",
-            "destination": "/api/index.py"
-          },
-          {
-            "source": "/style.css",
-            "destination": "/static/style.css"
-          },
-          {
-            "source": "/script.js",
-            "destination": "/static/script.js"
-          },
-          {
-            "source": "/",
-            "destination": "/static/index.html"
-          }
-        ],
-        "functions": {
-          "api/*.py": {
-            "runtime": "vercel-python@3.11"
-          }
-        }
-      }
+{
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index.py" },
+    { "source": "/style.css", "destination": "/static/style.css" },
+    { "source": "/script.js", "destination": "/static/script.js" },
+    { "source": "/", "destination": "/static/index.html" }
+  ]
+}
